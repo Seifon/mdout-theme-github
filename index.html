@@ -22,11 +22,27 @@
 
     <!-- 添加 mermaid.js 库-->
     <script src="{{.ThemePath}}/lib/mermaid/mermaid.js"></script>
+    
+    <script>
+        function myFunction() {
+            var x = document.getElementsByTagName("h2")[0].childNodes[0];
+
+            var test = document.createElement('span');
+            test.innerHTML = x.nodeValue;
+
+            document.getElementsByTagName("h2")[0].appendChild(test);
+            test.setAttribute('class', 'content');
+
+
+            document.getElementsByTagName("h2")[0].removeChild(x);
+
+        }
+    </script>
 </head>
 
 <body>
     <div id="jabingp" style="display: none;">渲染开始</div>
-    <div class="markdown-body">
+    <div class="markdown-body" onload="myFunction()">
         {{.MarkdownBody}}
     </div>
     <!-- 调用mermaid.js -->
