@@ -25,18 +25,19 @@
     
     <script>
         function myFunction() {
-            var x = document.getElementsByTagName("h2")[0].childNodes[0];
+          var h2 = document.getElementsByTagName("h2");
+          for (var i=0,len=h2.length; i<len; i++) {
+              var h2Child = h2[i];
+              var x = h2Child.childNodes[0];
 
-            var test = document.createElement('span');
-            test.innerHTML = x.nodeValue;
+              var test = document.createElement('span');
+              test.innerHTML = x.nodeValue;
+              test.setAttribute('class', 'content');
 
-            document.getElementsByTagName("h2")[0].appendChild(test);
-            test.setAttribute('class', 'content');
-
-
-            document.getElementsByTagName("h2")[0].removeChild(x);
-
-        }
+              h2Child.appendChild(test);
+              h2Child.removeChild(x);
+          }	
+       }
     </script>
 </head>
 
